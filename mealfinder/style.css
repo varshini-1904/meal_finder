@@ -70,3 +70,27 @@ header button{
 #sidebar p{
     margin: 20px 30px;
 }
+#carts{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 50px 30px;
+    
+}
+#carts div{
+    margin: 23px;
+    position: relative;
+   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+#carts p{
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: rgb(222, 101, 57) ;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+#categories h2{
+margin: 50px 30px;
+font-size:xx-large;
+}
