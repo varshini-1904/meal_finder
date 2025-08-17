@@ -1,13 +1,14 @@
 
 function categeory(){
+    sidebar.innerHTML=`<button onclick=closecategeory()><i class="fa-solid fa-circle-xmark"></i></button>`
     fetch("https://www.themealdb.com/api/json/v1/1/categories.php")
         .then(response=>{
             return response.json();
         })
         .then(data=>{
             document.getElementById("sidebar")
-            for(i in data.categories){
-                sidebar.innerHTML+=`<p>${data.categories[i].strCategory}</P>`
+            for(keys in data.categories){
+                sidebar.innerHTML+=`<p>${data.categories[keys].strCategory}</P>`
             }
         })
         .catch(error => {
@@ -15,3 +16,6 @@ function categeory(){
   });
 }
 
+function closecategeory(){
+    document.getElementById("sidebar").innerHTML=""
+}
