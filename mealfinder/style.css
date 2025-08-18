@@ -94,3 +94,9 @@ header button{
 margin: 50px 30px;
 font-size:xx-large;
 }
+.description{
+    border: 2px solid  rgb(222, 101, 57);
+    margin: 20px;
+    padding: 20px;
+}
+

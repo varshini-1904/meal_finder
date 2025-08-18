@@ -17,6 +17,7 @@ function heroimg(){
                 <p>PERSONALIZE YOUR EXPERIENCE</p>
             </div> `
 }
+
 heroimg()
 
 function categeorylist(){
@@ -68,9 +69,11 @@ function itemdescription(){
         .then(data=>{
             for(keys in data.categories){
                 descriptionbox=document.getElementById(`description-${data.categories[keys].strCategory}`)
-                descriptionbox.innerHTML+=`<h2>${data.categories[keys].strCategory}</h2>
+                if(descriptionbox)
+                {
+                descriptionbox.innerHTML=`<h2>${data.categories[keys].strCategory}</h2>
                 <p>${data.categories[keys].strCategoryDescription}</p>`
-            
+                }
             }
         })
         .catch(error => {
@@ -79,3 +82,35 @@ function itemdescription(){
     
 }
 itemdescription()
+
+function meals(){
+    fetch("https://www.themealdb.com/api/json/v1/1/categories.php")
+        .then(response=>{
+            return response.json();
+        })
+        .then(data=>{
+            for(keys in data.categories){
+                fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${data.categories[keys].strCategory}`)
+                .then(response=>{
+                    return response.json();
+                })
+                .then(data=>{
+                     document.getElementById("mealscart")
+                    for(keys in data.meals){
+                 
+                        mealscart.innerHTML+=`<div>
+                                 <img src="${data.meals[keys].strMealThumb}"></img></div>`
+                     }
+            
+                })
+                .catch(error => {
+                      console.error("Fetch error:", error);
+                });
+              }
+                })
+        .catch(error => {
+            console.error("Fetch error:", error);
+            });
+        }
+    
+meals()             
