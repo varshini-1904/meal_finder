@@ -19,14 +19,6 @@ function heroimg(){
 }
 heroimg()
 
-
-
-
-
-
-
-
-
 function categeorylist(){
     sidebar.innerHTML=`<button onclick=closecategeorylist()><i class="fa-solid fa-circle-xmark"></i></button>`
     fetch("https://www.themealdb.com/api/json/v1/1/categories.php")
@@ -67,3 +59,23 @@ function categoriescarts(){
   });
 }
 categoriescarts()
+
+function itemdescription(){
+    fetch("https://www.themealdb.com/api/json/v1/1/categories.php")
+        .then(response=>{
+            return response.json();
+        })
+        .then(data=>{
+            for(keys in data.categories){
+                descriptionbox=document.getElementById(`description-${data.categories[keys].strCategory}`)
+                descriptionbox.innerHTML+=`<h2>${data.categories[keys].strCategory}</h2>
+                <p>${data.categories[keys].strCategoryDescription}</p>`
+            
+            }
+        })
+        .catch(error => {
+            console.error("Fetch error:", error);
+  });
+    
+}
+itemdescription()
