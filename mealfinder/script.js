@@ -1,3 +1,31 @@
+function header(){
+    document.getElementById("head")
+    head.innerHTML+=`<div class="headtext">
+                <h2><i class="fa fa-cutlery" aria-hidden="true"></i>MEAL FINDER</h2>
+                <button onclick="categeorylist()"><i class="fa fa-bars" aria-hidden="true"></i></button>
+            </div>`
+}
+header()
+
+function heroimg(){
+    document.getElementById("heroimage")
+    heroimage.innerHTML+=`
+                <img src="https://images.pexels.com/photos/1435895/pexels-photo-1435895.jpeg" alt="image">
+            <div class="imgtext">
+                <input type="text" placeholder="Search recipies here.....">
+                <h3>What are your favourite cuisines?</h3>
+                <p>PERSONALIZE YOUR EXPERIENCE</p>
+            </div> `
+}
+heroimg()
+
+
+
+
+
+
+
+
 
 function categeorylist(){
     sidebar.innerHTML=`<button onclick=closecategeorylist()><i class="fa-solid fa-circle-xmark"></i></button>`
@@ -8,7 +36,7 @@ function categeorylist(){
         .then(data=>{
             document.getElementById("sidebar")
             for(keys in data.categories){
-                sidebar.innerHTML+=`<p>${data.categories[keys].strCategory}</P>`
+                sidebar.innerHTML+=`<p><a href="./${data.categories[keys].strCategory}.html">${data.categories[keys].strCategory}</a></P>`
             }
         })
         .catch(error => {
