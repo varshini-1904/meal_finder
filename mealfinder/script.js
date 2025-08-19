@@ -79,38 +79,28 @@ function itemdescription(){
         .catch(error => {
             console.error("Fetch error:", error);
   });
-    
+
 }
 itemdescription()
 
-function meals(){
-    fetch("https://www.themealdb.com/api/json/v1/1/categories.php")
-        .then(response=>{
-            return response.json();
+    function meals(categoryName) {
+      const mealscart = document.getElementById("mealscart");
+      mealscart.innerHTML = "Loading...";
+
+      fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${categoryName}`)
+        .then(res => res.json())
+        .then(mealsdata => {
+          mealscart.innerHTML = "";
+          if (mealsdata.meals) {
+            for (const meal of mealsdata.meals) {
+              mealscart.innerHTML += `
+                <div>
+                  <img src="${meal.strMealThumb}" >
+                  <p>${meal.strMeal}</p>
+                </div>
+              `;
+            }
+          }
         })
-        .then(data=>{
-            for(keys in data.categories){
-                fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${data.categories[keys].strCategory}`)
-                .then(response=>{
-                    return response.json();
-                })
-                .then(data=>{
-                     document.getElementById("mealscart")
-                    for(keys in data.meals){
-                 
-                        mealscart.innerHTML+=`<div>
-                                 <img src="${data.meals[keys].strMealThumb}"></img></div>`
-                     }
-            
-                })
-                .catch(error => {
-                      console.error("Fetch error:", error);
-                });
-              }
-                })
-        .catch(error => {
-            console.error("Fetch error:", error);
-            });
-        }
-    
-meals()             
+        .catch(() => mealscart.innerHTML = "<p>Failed to load meals.</p>");
+    }

@@ -1,6 +1,7 @@
 *{
     padding: 0;
     margin: 0;
+    font-family: sans-serif;
 }
 header{
     background-color: rgb(222, 101, 57);
@@ -96,7 +97,30 @@ font-size:xx-large;
 }
 .description{
     border: 2px solid  rgb(222, 101, 57);
-    margin: 20px;
-    padding: 20px;
+    margin: 60px;
+    padding: 30px;
 }
 
+.description h2{
+    color: rgb(222, 101, 57) ;
+    margin-bottom: 20px;
+    font-size: 33px;
+    font-weight: bolder;
+}
+
+.description p{
+    font-size: 26.5px;
+    color: rgb(109, 108, 108);
+    line-height: 1.8;
+}
+#mealscart{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 60px;
+    gap: 30px;
+    
+}
+#mealscart img{
+    height: 330px;
+    width: 330px;
+}
