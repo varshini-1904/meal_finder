@@ -47,10 +47,10 @@ function categoriescarts(){
             return response.json();
         })
         .then(data=>{
-            document.getElementById("sidebar")
+            document.getElementById("carts")
             for(keys in data.categories){
                 carts.innerHTML+=`<div>
-                <img src="${data.categories[keys].strCategoryThumb}">
+                <a href="./${data.categories[keys].strCategory}.html"><img src="${data.categories[keys].strCategoryThumb}"></a>
                 <p>${data.categories[keys].strCategory}</p>
                 </div>`
             }
@@ -96,9 +96,9 @@ itemdescription()
               mealscart.innerHTML += `
                 <div>
                 <a href="mealsdetail.html?id=${meal.idMeal}">
-                  <img src="${meal.strMealThumb}" >
+                  <img src="${meal.strMealThumb}" ></a>
                   <p>${meal.strMeal}</p>
-                </a>
+                
                 </div>
               `;
             }

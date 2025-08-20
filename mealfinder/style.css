@@ -58,6 +58,7 @@ header button{
     color: white;
     font-size: 26px;
     font-weight: lighter;
+    
 }
 #sidebar{
     position: fixed;
@@ -65,12 +66,30 @@ header button{
     right: 0;
     background-color: white;
     z-index: 1500;
-    width: 300px;
+    width: 360px;
+   
     
 }
 #sidebar p{
-    margin: 20px 30px;
+    margin: 35px 30px;
+    font-size: 20px;
+    
 }
+#sidebar p a{
+    color: black;
+    text-decoration: none;
+    color: rgb(63, 62, 62);
+}
+#sidebar button{
+    border: none;
+    color:  rgb(222, 101, 57) ;
+    background-color: white;
+    font-size: 25px;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+
 #carts{
     display: flex;
     flex-wrap: wrap;
@@ -124,6 +143,7 @@ font-size:xx-large;
     height: 330px;
     width: 330px;
 }
+
 .mealinf{
     margin: 40px;
 
@@ -272,4 +292,152 @@ font-size:xx-large;
   height: 18px;
   font-size: 12px;
   margin-top: 2px;  
+}
+@media (max-width: 992px) {
+  header {
+    height: 60px;
+  }
+
+  .headtext {
+    padding: 15px 20px;
+  }
+
+  #heroimage img {
+    height: 400px;
+  }
+
+  .imgtext {
+    top: 150px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .imgtext h3 {
+    font-size: 40px;
+  }
+
+  .imgtext p {
+    font-size: 20px;
+  }
+
+  .imgtext input {
+    width: 280px;
+    height: 55px;
+    font-size: medium;
+  }
+
+  .mealdetails .imgdetails {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .imgdetails img {
+    width: 100%;
+    height: auto;
+  }
+
+  .mealdetails .inftext {
+    padding: 20px;
+  }
+
+  #ingredients ol {
+    flex-wrap: wrap;
+  }
+
+  #ingredients ol li {
+    width: 45%;
+    margin-right: 0;
+  }
+
+  #measure {
+    grid-template-columns: 1fr;
+  }
+
+  #measure h3 {
+    grid-column: span 1;
+  }
+}
+
+
+@media (max-width: 600px) {
+  header {
+    height: 55px;
+  }
+
+  .headtext {
+    padding: 10px 15px;
+  }
+
+  #heroimage img {
+    height: 280px;
+  }
+
+  .imgtext {
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+  }
+
+  .imgtext h3 {
+    font-size: 28px;
+    margin: 20px 0;
+  }
+
+  .imgtext p {
+    font-size: 16px;
+  }
+
+  .imgtext input {
+    width: 90%;
+    height: 45px;
+    font-size: small;
+    padding: 0 20px;
+  }
+
+  #carts {
+    margin: 20px;
+    justify-content: center;
+  }
+
+  #carts div {
+    margin: 10px;
+  }
+
+  #mealscart {
+    margin: 20px;
+    gap: 15px;
+    justify-content: center;
+  }
+
+  #mealscart img {
+    width: 100%;
+    height: auto;
+  }
+
+  .description {
+    margin: 20px;
+    padding: 15px;
+  }
+
+  .description p {
+    font-size: 16px;
+  }
+
+  .mealdetails {
+    margin: 20px 0;
+    padding: 20px;
+  }
+
+  #ingredients ol li {
+    width: 100%;
+  }
+
+  #instructions p {
+    font-size: 14px;
+  }
+
+  #measure p {
+    font-size: 14px;
+  }
 }
