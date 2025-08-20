@@ -137,8 +137,60 @@ font-size:xx-large;
     align-items: center;
     padding: 0 50px;
 }
+.mealsinf{
+    margin: 40px;
+}
 .mealsinf h2{
     margin: 40px 0;
     font-weight: bold;
     font-size: 25px;
+}
+
+.mealdetails{
+    margin: 40px 0;
+    padding: 60px;
+     box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+.mealdetails .imgdetails{
+    display: flex;
+}
+.imgdetails img{
+    width: 850px;
+}
+.mealdetails .inftext{
+    padding: 20px;
+
+}
+
+.inftext h4{
+    color:rgb(222, 101, 57) ;
+    font-size: 35px;
+}
+
+.inftext hr{
+    background-color:rgb(222, 101, 57) ;
+    border: none; 
+    height: 2px;  
+    margin: 10px 0;
+    
+}
+.inftext{
+    margin: 0 30px;
+}
+.inftext h5{
+    font-size: 20px;
+    margin: 10px 0;
+    margin: 20px 0;
+}
+.inftext h5 span{
+    font-weight: normal;
+}
+#ingredients ol {
+  list-style-type: decimal;  
+  padding-left: 20px; 
+  display: flex;
+  flex-wrap: wrap;       
+}
+#ingredients ol li{
+    margin-right: 80px;
 }

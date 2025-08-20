@@ -34,8 +34,8 @@
                   <div class="inftext">
                     <h4>${meal.strMeal}</h4>
                     <hr>
-                    <h5>Category:${meal.strCategory}</h5>
-                    <h5>Source: ${meal.strSource ? meal.strSource : "Source not found"}</h5>
+                    <h5>CATEGORY: <span> ${meal.strCategory}</span></h5>
+                    <h5>Source: <span> ${meal.strSource ? meal.strSource : "Source not found"}</span></h5>
                     <p>Tags:</p>
                     <div id="ingredients"></div>
                   </div>
@@ -45,16 +45,20 @@
         </div>
         `
         document.getElementById("ingredients")
-        ingredients.innerHTML=`<h3>INGREDIENTS</h3>`
+        let listitems=""
         for(i=1;i<=20;i++){
           ingredient=meal[`strIngredient${i}`]
           
+          if (ingredient && ingredient.trim() !== "") {
     
-            document.getElementById("ingredients").innerHTML += 
-     
-            `<p>${ingredient}</p>`;
+             listitems +=  `<li>${ingredient}</li>`;
+
+          }
   
         }
+        ingredients.innerHTML=`<h3>INGREDIENTS</h3>
+                                <ol>${listitems}</ol>`
+        
         document.getElementById("measure")
         measure.innerHTML+=`<h3>Measure</h3>`
         for(i=1;i<=20;i++){
