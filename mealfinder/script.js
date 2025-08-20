@@ -50,7 +50,7 @@ function categoriescarts(){
             document.getElementById("sidebar")
             for(keys in data.categories){
                 carts.innerHTML+=`<div>
-                <img src="${data.categories[keys].strCategoryThumb}"></img>
+                <img src="${data.categories[keys].strCategoryThumb}">
                 <p>${data.categories[keys].strCategory}</p>
                 </div>`
             }

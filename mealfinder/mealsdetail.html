@@ -35,14 +35,34 @@
                     <h4>${meal.strMeal}</h4>
                     <hr>
                     <h5>Category:${meal.strCategory}</h5>
-                    <h5>Source:${meal.strSource}</h5>
+                    <h5>Source: ${meal.strSource ? meal.strSource : "Source not found"}</h5>
                     <p>Tags:</p>
                     <div id="ingredients"></div>
-                    </div>
+                  </div>
+              </div>
+              <div id="measure"></div>
             </div>
         </div>
         `
-        document.getElementById
+        document.getElementById("ingredients")
+        ingredients.innerHTML=`<h3>INGREDIENTS</h3>`
+        for(i=1;i<=20;i++){
+          ingredient=meal[`strIngredient${i}`]
+          
+    
+            document.getElementById("ingredients").innerHTML += 
+     
+            `<p>${ingredient}</p>`;
+  
+        }
+        document.getElementById("measure")
+        measure.innerHTML+=`<h3>Measure</h3>`
+        for(i=1;i<=20;i++){
+          measure=meal[`strMeasure${i}`]
+          document.getElementById("measure").innerHTML += 
+     
+            `<p>${measure}</p>`;
+        }
 
       })
       .catch(error => console.error("Error fetching meal details:", error));
