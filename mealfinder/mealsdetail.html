@@ -14,7 +14,36 @@
   <div id="mealDetails"></div>
 
 
-  
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const mealId = urlParams.get("id");
+
+    fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealId}`)
+      .then(response => response.json())
+      .then(data => {
+        const meal = data.meals[0];
+        document.getElementById("mealDetails").innerHTML = `
+        <div class="mealsinf">
+          <div class=itemheader>
+            <p>${meal.strMeal}</p></div>
+            <h2>MEAL DETAILS</h2>
+            <div class="mealdetails">
+              <div class="imgdetails">
+                <div class="img">
+                  <img src="${meal.strMealThumb}"></div>
+                  <div class="inftext">
+                    <h4>${meal.strMeal}</h4>
+                    <hr>
+                    <h5>Category:${meal.strCategory}</h5>
+                    <h5>Source:${meal.strSource}</h5>
+                    <p>Tags:</p></div>
+            </div>
+        </div>
+
+        `;
+      })
+      .catch(error => console.error("Error fetching meal details:", error));
+  </script>
   <script src="./script.js"></script>
 </body>
 </html>

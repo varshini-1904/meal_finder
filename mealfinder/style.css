@@ -124,3 +124,21 @@ font-size:xx-large;
     height: 330px;
     width: 330px;
 }
+.mealinf{
+    margin: 40px;
+
+}
+
+.itemheader{
+    background-color: rgb(222, 101, 57) ;
+    color: white;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    padding: 0 50px;
+}
+.mealsinf h2{
+    margin: 40px 0;
+    font-weight: bold;
+    font-size: 25px;
+}
