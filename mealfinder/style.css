@@ -155,10 +155,11 @@ font-size:xx-large;
     display: flex;
 }
 .imgdetails img{
-    width: 850px;
+    width: 950px;
+    height: 800px;
 }
 .mealdetails .inftext{
-    padding: 20px;
+    padding: 40px;
 
 }
 
@@ -189,8 +190,86 @@ font-size:xx-large;
   list-style-type: decimal;  
   padding-left: 20px; 
   display: flex;
-  flex-wrap: wrap;       
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 #ingredients ol li{
-    margin-right: 80px;
+    width: 150px;
+    margin-right: 40px;
+    margin-bottom: 20px;
+}
+#ingredients{
+    background-color:rgb(222, 101, 57) ;
+    padding: 10px;
+    color: white;
+    margin: 40px 0;
+}
+#ingredients h3{
+    margin: 20px 0;
+}
+#measure {
+  background: #fff;
+  padding: 15px 20px;
+  margin: 15px 0;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); 
+  gap: 8px 20px; 
+}
+
+#measure h3 {
+  grid-column: span 2;
+  color: rgb(222, 101, 57);
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+#measure p {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+#measure p::before {
+  content: "🥄";  
+  font-size: 14px;
+}
+#instructions {
+  background: #fff;
+  padding: 15px 20px;
+  margin: 15px 0;
+  border: none;
+  border-radius: 8px;
+  line-height: 1.6;
+}
+
+#instructions h3 {
+  color: rgb(222, 101, 57);
+  margin-bottom: 12px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+#instructions p {
+  margin: 8px 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+#instructions p::before {
+  content: "✔";                  
+  color: rgb(222, 101, 57);                    
+  border: 2px solid rgb(222, 101, 57);        
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 18px;
+  height: 18px;
+  font-size: 12px;
+  margin-top: 2px;  
 }

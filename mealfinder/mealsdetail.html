@@ -12,6 +12,10 @@
 
     </div>
   <div id="mealDetails"></div>
+  <div id="categories">
+      <h2>CATEGORIES</h2>
+      <div id="carts"></div>
+  </div>
 
 
   <script>
@@ -41,6 +45,10 @@
                   </div>
               </div>
               <div id="measure"></div>
+              <div id="instructions">
+
+
+                </div>
             </div>
         </div>
         `
@@ -63,10 +71,32 @@
         measure.innerHTML+=`<h3>Measure</h3>`
         for(i=1;i<=20;i++){
           measure=meal[`strMeasure${i}`]
+          if (measure && measure.trim() !== "") {
           document.getElementById("measure").innerHTML += 
      
             `<p>${measure}</p>`;
-        }
+           }
+      }
+      document.getElementById("instructions");
+
+      instructions.innerHTML = "<h3>Instructions:</h3>";
+
+      let steps = meal.strInstructions.split(/\r?\n/); 
+      
+      for (let i = 0; i < steps.length; i++) {
+  
+        let step = steps[i].trim(); 
+  
+        if (step !== "") {
+          instructions.innerHTML+=`<p>${step}</p>`
+  
+          
+  
+          ;
+  }
+}
+
+      
 
       })
       .catch(error => console.error("Error fetching meal details:", error));
