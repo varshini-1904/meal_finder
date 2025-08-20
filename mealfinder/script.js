@@ -95,8 +95,10 @@ itemdescription()
             for (const meal of mealsdata.meals) {
               mealscart.innerHTML += `
                 <div>
+                <a href="mealsdetail.html?id=${meal.idMeal}">
                   <img src="${meal.strMealThumb}" >
                   <p>${meal.strMeal}</p>
+                </a>
                 </div>
               `;
             }
@@ -104,3 +106,4 @@ itemdescription()
         })
         .catch(() => mealscart.innerHTML = "<p>Failed to load meals.</p>");
     }
+
