@@ -12,7 +12,8 @@ function heroimg(){
     heroimage.innerHTML+=`
                 <img src="https://images.pexels.com/photos/1435895/pexels-photo-1435895.jpeg" alt="image">
             <div class="imgtext">
-                <input type="text" placeholder="Search recipies here.....">
+                <input id="searchInput" type="text" placeholder="Search recipies here.....">
+                <button id="searchBtn"><i class="fa fa-search"></i></button>
                 <h3>What are your favourite cuisines?</h3>
                 <p>PERSONALIZE YOUR EXPERIENCE</p>
             </div> `
@@ -106,4 +107,54 @@ itemdescription()
         })
         .catch(() => mealscart.innerHTML = "<p>Failed to load meals.</p>");
     }
+
+  const searchInput = document.getElementById("searchInput");
+  const searchBtn = document.getElementById("searchBtn");
+  const searchResults = document.getElementById("searchResults");
+
+  function fetchMeals(query) {
+    searchResults.innerHTML = "<p>Loading...</p>";
+    fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`)
+      .then(response => response.json())
+      .then(data => {
+        displayMeals(data.meals);
+      })
+      .catch(error => {
+        console.error("Error fetching meals:", error);
+        searchResults.innerHTML = "<p>Error fetching meals!</p>";
+      });
+  }
+
+  function displayMeals(meals) {
+    if (!meals) {
+      searchResults.innerHTML = "<p>No results found.</p>";
+      return;
+    }
+    searchResults.innerHTML = "";
+    meals.forEach(meal => {
+      const mealDiv = document.createElement("div");
+      mealDiv.classList.add("meal");
+      mealDiv.innerHTML = `
+        <img id="mealimg"src="${meal.strMealThumb}" alt="${meal.strMeal}">
+        <h3>${meal.strMeal}</h3>
+      `;
+      searchResults.appendChild(mealDiv);
+    });
+  }
+
+  
+  searchBtn.addEventListener("click", () => {
+    const query = searchInput.value.trim();
+    if (query) {
+      fetchMeals(query);
+    }
+  });
+
+
+  searchInput.addEventListener("keypress", (e) => {
+    if (e.key === "Enter") {
+      searchBtn.click();
+    }
+  });
+
 

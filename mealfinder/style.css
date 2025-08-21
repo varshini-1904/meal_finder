@@ -48,6 +48,13 @@ header button{
     font-size: large;
     padding: 0 40px;
 }
+.imgtext button{
+  font-size: 20px;
+  border-radius: 50%;
+  padding: 20px;
+  border: none;
+  color: rgb(222, 101, 57);
+}
 .imgtext h3{
     color: white;
     font-size: 60px;
@@ -293,6 +300,32 @@ font-size:xx-large;
   font-size: 12px;
   margin-top: 2px;  
 }
+#searchResults {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin: 30px 25px;
+ 
+  
+}
+
+.meal {
+  background: #fff;
+  border-radius: 12px;
+  
+}
+.meal #mealimg {
+ width: 600px;
+  height: 500px;
+  border-radius: 12px;
+}
+
+
+
+
+
+
+
 @media (max-width: 992px) {
   header {
     height: 60px;
@@ -441,3 +474,4 @@ font-size:xx-large;
     font-size: 14px;
   }
 }
+
